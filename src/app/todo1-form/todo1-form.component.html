@@ -1,0 +1,12 @@
+<div class="card">
+    <div class="card-body">
+        <form #todoForm="ngForm" (ngSubmit)="onTodoAdd()">
+            <div class="form-group">
+                <input type="text" class="form-control" ngModel name="todoItem" required #todoForm="ngModel">
+                
+            </div>
+            <button *ngIf="!isEodt" mat-raised-button color="primary" class="btn btn-block">Add Todo</button>
+            <button *ngIf="isEodt" mat-raised-button color="accent" (click)="onUpdate()" class="btn btn-block">Update Todo</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+
+
+<table class="table table-bordered"  *ngIf="studentArr.length > 0 ;else msg">
+    <thead>
+        <tr>
+            <th>Sr NO</th>
+            <th>Fname</th>
+            <th>Lname</th>
+            <th>Email</th>
+            <th>Contact</th>
+            <th>Edit</th>
+            <th>Remove</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let std of studentArr; let i = index;">
+            <td>{{i + 1}}</td>
+            <td>{{std.fname}}</td>
+            <td>{{std.lname}}</td>
+            <td>{{std.email}}</td>
+            <td>{{std.contact}}</td>
+            <td>
+                <button (click)="onEdit(std)" mat-mini-fab color="primary" aria-label="Example icon button with a delete icon">
+          <mat-icon>edit</mat-icon>
+        </button>
+            </td>
+            <td>
+                 <button (click)="onRemove(std.stdId)" mat-mini-fab color="warn" aria-label="Example icon button with a delete icon">
+                <mat-icon>delete</mat-icon>
+            </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<ng-template #msg>
+    <p class="alert alert-info">
+        No Data Found
+    </p>
+</ng-template>
